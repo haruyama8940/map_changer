@@ -13,7 +13,10 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   geometry_msgs
   gazebo_msgs
+  nav_msgs
 )
+find_package(PkgConfig)
+pkg_search_module(yaml-cpp REQUIRED yaml-cpp)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -122,6 +125,11 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${yaml-cpp_INCLUDE_DIRS}
+)
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/switching_by_odom.cpp
@@ -155,6 +163,7 @@ add_executable(map_changer src/map_changer.cpp)
 target_link_libraries(
     map_changer
     ${catkin_LIBRARIES}
+    ${yaml-cpp_LIBRARIES}
 )
 
 #############

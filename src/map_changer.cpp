@@ -32,6 +32,7 @@ std::string pass_;
 ros::ServiceServer change_call;
 ros::ServiceClient change_map;
 bool ch_flag=true;
+std::string map_name;
 // std_srvs::SetBoolResponse map_response;
 // std_srvs::SetBoolRequest map_request;
 
@@ -57,6 +58,9 @@ bool map_changer::change_map_callback(std_srvs::Trigger::Request &request,
 
 bool map_changer::read_yaml()//read_yaml result
     {
+    YAML::Node map_yaml= YAML::LoadFile(filename_);
+    int map_id = map_yaml["map"]["id"].as<int>();
+    map_name= map_yaml["map"]["map_name"].as<std::string>();
     return true;
     }
 
@@ -66,7 +70,9 @@ void map_changer::call_map()//mainloop
     while(ros::ok()) {
         nav_msgs::LoadMap::Request map_req;
         nav_msgs::LoadMap::Response map_res;
-        map_req.map_url="/home/haru/map/1007a.yaml";
+        // map_req.map_url="/home/haru/map/1007a.yaml";
+        map_req.map_url=map_name;
+        if (ch_flag)
         if (ch_flag)
         {
              change_map.call(map_req,map_res);
@@ -90,7 +96,7 @@ int main(int argc, char** argv){
 //   ros::Rate rate(1);
   bool read_result = map_ch.read_yaml();
     if(!read_result){
-        ROS_ERROR("Waypoint Navigatioin system is shutting down");
+        ROS_ERROR("Map changer system is shutting down");
         return 1;
     }
     else{
