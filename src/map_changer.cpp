@@ -31,6 +31,7 @@ std::string filename_;
 std::string pass_;
 ros::ServiceServer change_call;
 ros::ServiceClient change_map;
+bool ch_flag=true;
 // std_srvs::SetBoolResponse map_response;
 // std_srvs::SetBoolRequest map_request;
 
@@ -41,7 +42,7 @@ nh_(),
 pnh_("~")
 {
 pnh_.param("filename", filename_, filename_);
-change_call=nh_.advertiseService("change_map", 
+change_call=nh_.advertiseService("change_call", 
                                   &map_changer::change_map_callback,this);
 
 change_map=nh_.serviceClient<nav_msgs::LoadMap>("change_map");
@@ -50,6 +51,7 @@ change_map=nh_.serviceClient<nav_msgs::LoadMap>("change_map");
 bool map_changer::change_map_callback(std_srvs::Trigger::Request &request,
                                       std_srvs::Trigger::Response &response)//from waypoint 
     {
+    //ch_flag=true;
     return true;
     }
 
@@ -60,18 +62,32 @@ bool map_changer::read_yaml()//read_yaml result
 
 void map_changer::call_map()//mainloop
     {
-    nav_msgs::LoadMap::Request map_req;
-    nav_msgs::LoadMap::Response map_res;
-    map_req.map_url="/home/haru/map/1007a.yaml";
-    change_map.call(map_req,map_res);
-    }
+    ros::Rate loop_rate(1);
+    while(ros::ok()) {
+        nav_msgs::LoadMap::Request map_req;
+        nav_msgs::LoadMap::Response map_res;
+        map_req.map_url="/home/haru/map/1007a.yaml";
+        if (ch_flag)
+        {
+             change_map.call(map_req,map_res);
+             ch_flag=false;
+            ROS_INFO("Call Change Map!");
+        }
+        else
+            ROS_INFO("No");
+    }                                                        
+    ros::spinOnce();
+    // 決められた周期でループするため寝て待つ                                              
+    loop_rate.sleep();
+  }
+   
 
 
 
 int main(int argc, char** argv){
   ros::init(argc, argv, "map_changer");
   map_changer map_ch;
-  ros::Rate rate(1);
+//   ros::Rate rate(1);
   bool read_result = map_ch.read_yaml();
     if(!read_result){
         ROS_ERROR("Waypoint Navigatioin system is shutting down");
