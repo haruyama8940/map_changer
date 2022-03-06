@@ -2,7 +2,7 @@
 局所的なmapを切り替えるnode 
 
 ### 使い方
-/mapへ使用するmapを配置
+/mapへ使用するmapを配置  
 /list内のmap_list.yamlへmapのpassを記述
 ```yaml
 -map
