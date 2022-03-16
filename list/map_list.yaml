@@ -1,0 +1,42 @@
+map_list:
+  - map: 
+     id: 0
+     map_name: /home/haru/catkin_ws/src/map_changer/map/Tsudanuma01.yaml
+     pose_x: 0.3
+     pose_y: 0.4
+     ori_z: 0.99
+     ori_w: 0.8
+  - map:
+     id: 1
+     map_name: /home/haru/catkin_ws/src/map_changer/map/Tsudanuma02.yaml
+     pose_x: 0.3
+     pose_y: 0.4
+     ori_z: 0.99
+     ori_w: 0.8
+  - map:
+     id: 2
+     map_name: /home/haru/catkin_ws/src/map_changer/map/Tsudanuma03.yaml
+     pose_x: 0.3
+     pose_y: 0.4
+     ori_z: 0.99
+     ori_w: 0.8
+  - map:
+     id: 3
+     map_name: /home/haru/catkin_ws/src/map_changer/map/Tsudanuma04.yaml
+     pose_x: 0.3
+     pose_y: 0.4
+     ori_z: 0.99
+     ori_w: 0.8
+  - map:
+     id: 4
+     map_name: /home/haru/catkin_ws/src/map_changer/map/Tsudanuma05.yaml
+     pose_x: 0.3
+     pose_y: 0.4
+     ori_z: 0.99
+     ori_w: 0.8
+ 
+
+
+ 
+
+ 
