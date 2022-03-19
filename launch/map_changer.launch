@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="file" value="$/home/haru/list/map_list,yaml"/>
+    <arg name="file" default="$(find map_changer)/list/map_list.yaml"/>
 
     <node pkg="map_changer" type="map_changer" name="map_changer" output="screen">
-        <rosparam filename_="$(arg file)" command="load"/>
+        <param name="filename" value="$(arg file)"/>
     </node>
 
     <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find waypoint_nav)/rviz/editor.rviz" /> -->
