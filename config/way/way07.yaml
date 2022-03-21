@@ -1,12 +1,17 @@
 waypoints:
     - point:
-        x: -4.44146
-        y: -88.611
+        x: -3.9011
+        y: -88.5732
         z: 0.00396367
         function: run
     - point:
         x: -1.0632
         y: -84.6995
+        z: 0.00395986
+        function: run
+    - point:
+        x: -0.984188
+        y: -79.1214
         z: 0.00395986
         function: run
     - point:
@@ -170,7 +175,7 @@ waypoints:
         z: 0.00338701
         function: run
     - point:
-        x: -82.7513
-        y: -58.7128
-        z: 0.00338701
+        x: -82.3442
+        y: -56.2446
+        z: 0.00338892
         function: change_5
