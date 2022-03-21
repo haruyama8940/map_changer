@@ -25,8 +25,7 @@ public:
                              std_srvs::SetBool::Response &response);
     
 private:
-std::string filename_;
-// = "/home/haru/catkin_ws/src/map_changer/list/map_list.yaml";
+std::string filename_ = "/home/haru/catkin_ws/src/map_changer/list/map_list.yaml";
 std::string pass_;
 ros::Publisher initial_pose_pub;
 ros::ServiceServer change_call;

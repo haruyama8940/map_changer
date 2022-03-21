@@ -43,7 +43,7 @@ waypoints:
         x: -74.1986
         y: -96.5152
         z: 0.00395605
-        function: run
+        function: change_2
     - point:
         x: -74.0707
         y: -80.1084

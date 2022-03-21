@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="file" default="$(find map_changer)/list/map_list.yaml"/>
+    <arg name="file" default="$(find map_changer)/config/map_list.yaml"/>
 
     <node pkg="map_changer" type="map_changer" name="map_changer" output="screen">
         <param name="filename" value="$(arg file)"/>
