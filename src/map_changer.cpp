@@ -19,13 +19,13 @@ public:
     ros::NodeHandle nh_;
     ros::NodeHandle pnh_;
     bool read_yaml();
-    void initial_pose_set(double pose_x,double pose_y,double ori_z,double ori_w);
+    void initial_pose_set(float pose_x,float pose_y,float ori_z,float ori_w);
     void call_map();
     bool change_map_callback(std_srvs::SetBool::Request &request, 
                              std_srvs::SetBool::Response &response);
     
 private:
-std::string filename_ = "/home/haru/catkin_ws/src/map_changer/list/map_list.yaml";
+std::string filename_= "/home/haru/orne_ws/src/map_changer/config/map_list.yaml";
 std::string pass_;
 ros::Publisher initial_pose_pub;
 ros::ServiceServer change_call;
@@ -49,6 +49,7 @@ change_call=nh_.advertiseService("change_call",
                                   &map_changer::change_map_callback,this);
 
 change_map=nh_.serviceClient<nav_msgs::LoadMap>("change_map");
+initial_pose_pub = nh_.advertise<geometry_msgs::PoseWithCovarianceStamped>("initialpose", 10);//initial_pose publish
 }
 
 bool map_changer::change_map_callback(std_srvs::SetBool::Request &request,
@@ -86,7 +87,7 @@ bool map_changer::read_yaml()//read_yaml result
     return true;
     }
 
-void map_changer::initial_pose_set(double x,double y,double o_z,double o_w)//initial_pose set function
+void map_changer::initial_pose_set(float x,float y,float o_z,float o_w)//initial_pose set function
     
     {
     geometry_msgs::PoseWithCovarianceStamped pose_msg;
@@ -115,7 +116,7 @@ void map_changer::call_map()//mainloop
             ROS_INFO("map_id: %d",map_id);
             ROS_INFO("map_url: %s",map_name);
             change_map.call(map_req,map_res);
-            //initial_pose_set(pose_x,pose_y,ori_z,ori_w);
+            initial_pose_set(pose_x,pose_y,ori_z,ori_w);
             ch_flag=false;
             count++;
             ROS_INFO("Call Change Map!:count: %d" ,count);
