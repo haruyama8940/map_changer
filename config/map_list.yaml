@@ -2,45 +2,45 @@ map_list:
   - map:
      id: 0 #1-2
      map_name: /home/haru/orne_ws/src/map_changer/config/map/Tsudanuma02.yaml
-     pose_x: 0.3
-     pose_y: 0.4
-     ori_z: 0.99
-     ori_w: 0.8
+     pose_x: -80.0
+     pose_y: -87.5
+     ori_z: 0.026
+     ori_w: 0.99
   - map:
      id: 1 #2-3
      map_name: /home/haru/orne_ws/src/map_changer/config//map/Tsudanuma03.yaml
-     pose_x: 0.3
-     pose_y: 0.4
-     ori_z: 0.99
-     ori_w: 0.8
+     pose_x: 45.48
+     pose_y: -42.6
+     ori_z: 0.67
+     ori_w: 0.73
   - map:
      id: 2 #3-1
      map_name: /home/haru/orne_ws/src/map_changer/config//map/Tsudanuma01.yaml
-     pose_x: 0.3
-     pose_y: 0.4
-     ori_z: 0.99
-     ori_w: 0.8
+     pose_x: -80.0
+     pose_y: -42.0
+     ori_z: -0.68
+     ori_w: 0.72
   - map:
      id: 3 #2-1
      map_name: /home/haru/orne_ws/src/map_changer/config/map/Tsudanuma01.yaml
-     pose_x: 0.3
-     pose_y: 0.4
+     pose_x: 56.0
+     pose_y: -87.4
      ori_z: 0.99
-     ori_w: 0.8
+     ori_w: 0.04
   - map:
      id: 4 #1-4
      map_name: /home/haru/orne_ws/src/map_changer/config/map/Tsudanuma04.yaml
-     pose_x: 0.3
-     pose_y: 0.4
-     ori_z: 0.99
-     ori_w: 0.8
+     pose_x: -4.0
+     pose_y: -98.94
+     ori_z: 0.64
+     ori_w: 0.76
   - map:
      id: 5 #4-3
      map_name: /home/haru/orne_ws/src/map_changer/config//config/map/Tsudanuma01.yaml
-     pose_x: 0.3
-     pose_y: 0.4
-     ori_z: 0.99
-     ori_w: 0.8
+     pose_x: -81.99
+     pose_y: -43.18
+     ori_z: -0.69
+     ori_w: 0.72
  
 
 
