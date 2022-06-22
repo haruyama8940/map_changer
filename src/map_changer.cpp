@@ -2,8 +2,8 @@
 #include "geometry_msgs/PoseWithCovarianceStamped.h"
 #include "math.h"
 #include <cmath>
-#include <ros/ros.h>                        // ROSヘッダファイル
-#include <std_srvs/SetBool.h>                // サービスヘッダファイル
+#include <ros/ros.h>                        
+#include <std_srvs/SetBool.h>               
 #include <std_msgs/Bool.h>
 #include <std_msgs/String.h>
 #include <nav_msgs/LoadMap.h>
@@ -139,8 +139,7 @@ int main(int argc, char** argv){
      while (ros::ok())
         {
             map_ch.call_map();
-            ros::spinOnce();
-        // 決められた周期でループするため寝て待つ                                              
+            ros::spinOnce();                                         
             loop_rate.sleep();
        }
     }        
