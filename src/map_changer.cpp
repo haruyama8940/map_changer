@@ -25,7 +25,7 @@ public:
                              std_srvs::SetBool::Response &response);
     
 private:
-std::string filename_= "/home/haru/orne_ws/src/map_changer/config/map_list.yaml";
+std::string filename_;
 std::string pass_;
 ros::Publisher initial_pose_pub;
 ros::ServiceServer change_call;
